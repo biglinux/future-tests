@@ -6,9 +6,40 @@ msgstr ""
 "Language: C\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
 #: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+msgid "O sistema está em modo"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+msgid "e com o kernel"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-with-component.html:0
+msgid ""
+"Esse é um sistema colaborativo, se precisar de ajuda consulte nosso fórum: "
+"https://forum.biglinux.com.br."
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-with-component.html:0
+msgid "Contamos com você para ter um sistema cada vez melhor!"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
 msgid "Manutenção"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+msgid "Voltar"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
+#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
+msgid "Opções avançadas"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
@@ -40,11 +71,6 @@ msgid "Instalar"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-msgid "Opções avançadas"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
 msgid ""
 "É um usuário avançado e deseja fazer uma instalação personalizada? "
 "Possuimos diversas possibilidades\n"
@@ -55,50 +81,12 @@ msgstr ""
 msgid "Avançado"
 msgstr ""
 
-#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-#: future-tests/usr/share/bigbashview/apps/calamares/example-with-component.html:0
-msgid ""
-"Esse é um sistema colaborativo, se precisar de ajuda consulte nosso fórum: "
-"https://forum.biglinux.com.br."
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/calamares/example-in-html.html:0
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-#: future-tests/usr/share/bigbashview/apps/calamares/example-with-component.html:0
-msgid "Contamos com você para ter um sistema cada vez melhor!"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-msgid "O sistema está em modo"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-msgid "e com o kernel"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/calamares/index.html:0
-msgid "Voltar"
-msgstr ""
-
 #: future-tests/usr/share/bigbashview/apps/calamares/community.html:0
 msgid "Instalação Personalizada"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/calamares/community.html:0
 msgid "Gerenciador de login"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
-msgid "Alterações marcadas"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
-msgid "Remover"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
-msgid "Atualizar"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/bigstore/html/navigation.html:0
@@ -159,18 +147,6 @@ msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/bigstore/html/navigation.html:0
 msgid "Dev"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
-msgid "Selecionados"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
-msgid "Cancelar"
-msgstr ""
-
-#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
-msgid "Aplicar"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/bigstore/html/package-info.html:0
@@ -275,6 +251,30 @@ msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/bigstore/html/package-info.html:0
 msgid "Signatures:"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
+msgid "Alterações marcadas"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
+msgid "Remover"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/packages-selected.html:0
+msgid "Atualizar"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
+msgid "Selecionados"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
+msgid "Cancelar"
+msgstr ""
+
+#: future-tests/usr/share/bigbashview/apps/bigstore/html/header.html:0
+msgid "Aplicar"
 msgstr ""
 
 #: future-tests/usr/share/bigbashview/apps/bigstore/html/top-bar.html:0
