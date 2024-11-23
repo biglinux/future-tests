@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[[ ! -e ~/.config/bigstore ]] && mkdir -p ~/.config/bigstore
+
+cd /usr/share/bigbashview/apps/bigstore/
+
+# Start bigbashview
+bigbashview -s 1000x580 -n bigstore -p bigstore -c transparent -w frameless index.html

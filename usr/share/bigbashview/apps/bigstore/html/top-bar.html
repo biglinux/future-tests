@@ -7,17 +7,11 @@
 -->
 
 <!-- Top Bar -->
-<header class="fixed header-fixed-on-right">
-    <nav>
-        <!-- Search Bar -->
-        <div class="field prefix round medium-width">
-            <i>search</i>
-            <input id="search" type="search" x-ref="searchInput" x-on:keyup.enter="performSearch()" x-init="$refs.searchInput.setAttribute('placeholder', _('Search...'))" class="no-elevate secondary-border" autofocus>
-        </div>
-    </nav>
+<div id="right" class="drag-area">
+    <div class="right-content">
 
     <!-- Filter Options -->
-    <nav class="no-margin scroll space-between">
+    <nav class="no-margin scroll space-between center-align">
         <div>
             <!-- Nativos Checkbox -->
             <label class="switch icon round pkg-native-color">
@@ -74,24 +68,8 @@
                 <div class="tiny-padding right-margin white-text">0</div>
             </label>
         </div>
-
-        <div>
-            <!-- Color Mode Button -->
-            <button class="transparent circle" onclick="setColorMode()">
-                <i id="dark" style="display: none">light_mode</i>
-                <i id="light">dark_mode</i>
-            </button>
-
-            <!-- View Mode Button -->
-            <button class="transparent circle">
-                <i id="grid_view" style="display: none">list</i>
-                <i id="list">grid_view</i>
-            </button>
-        </div>
     </nav>
-</header>
-
 <!-- Main Content -->
-<main class="responsive max">
+<main>
     <div class="page right active">
         <div class="grid tiny-padding large-space">

@@ -2,19 +2,37 @@
 <!-- This file represents the header section of the BigStore application. It includes the project name, generic header (CSS and JS), and project-specific JavaScript file for the BigStore search functionality. The body class is dynamically set based on the result of the getColor.sh script. -->
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Set the project name -->
-  <script> let projectName = 'future-tests'; </script>
+  <script> let projectName = 'bigstore'; </script>
 
   <!-- Include the generic header (CSS and JS) -->
   <?include html /usr/share/bigbashview/framework/html/genericHeader.html?>
+
+  <!-- Include window control side decorator -->
+  <link href="/usr/share/bigbashview/framework/css/client-side-decorator.css" rel="stylesheet">
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+  <script src="/usr/share/bigbashview/framework/js/client-side-decorator.js" defer></script>
+
+  <!-- Includes the window control side shell script -->
+  <?include bash /usr/share/bigbashview/framework/shell/windowControlSide.sh 2> /dev/null ?>
 
   <!-- Include project-specific JavaScript file -->
   <script src="js/bigstore-search.js"></script>
 </head>
 
 <body class="large-text <?include bash getColor.sh?>" x-data="getItems()" x-init="loadConfig">
+  <!-- Using Client Side Decoration use body transparent to make shadow, and page work like real body -->
+  <!-- Using Client Side Decoration use body transparent to make shadow, and page work like real body -->
+  <div id="page">
+    <!-- Any component with drag-area class is used to drag and move window and z-1000 to show over anything -->
+    <div id="title-bar" class="drag-area z-1000">
+      <div class="field prefix round input-search-right-side">
+        <i>search</i>
+        <!-- Using placeholderText to modify in javascript for translated text in stonejs -->
+          <input id="search" type="search" x-ref="searchInput" x-on:keyup.enter="performSearch()" x-init="$refs.searchInput.setAttribute('placeholder', _('Search...'))" class="no-elevate secondary-border" autofocus>
+      </div>
+    </div>
 
   <div id="infoAndApplyContainer" x-collapse x-cloak
     x-show="markedForInstall.length > 0 || markedForRemoval.length > 0 || markedForUpdate.length > 0" x-init="function() {
