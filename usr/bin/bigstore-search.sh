@@ -75,8 +75,8 @@ do
             shift # Remove the --flatpak parameter
             ;;
         --snap)
-            # Verify if Snap is installed
-            if [[ -e /usr/bin/snap ]]; then
+            # Verify if Snap is active
+            if systemctl -q is-active snapd.socket; then
                 searchSnap=true
             fi
             shift # Remove the --snap parameter
@@ -104,10 +104,10 @@ done
 if ! $searchAur && ! $searchPacman && ! $searchFlatpak && ! $searchSnap; then
     searchPacman=true
     searchAur=true
-    if [ "$(systemctl is-active --user flatpak-portal.service)" = "active" ];then
+    if [[ -e /usr/bin/flatpak ]]; then
         searchFlatpak=true
     fi
-    if [ "$(systemctl is-active snapd.socket)" = "active" ];then
+    if systemctl -q is-active snapd.socket; then
         searchSnap=true
     fi
 fi
