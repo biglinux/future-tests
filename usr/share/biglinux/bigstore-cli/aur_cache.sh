@@ -139,7 +139,11 @@ $jqBinary -r '.[] | "\(.Name)\u0001\(.Description)\u0001\(.Version)\u0001\(.NumV
 # Read the list of installed packages that are not in the repository
 # Remove the packages that are in the AUR from the list, leaving only the obsolete ones
 # Include the description and convert to JSON format
-LANG=C pacman -Qi $(rg -N $(rg -o '.*p":"([^"]*).*,"i":"true"' -r '-ve $1 ' "$FileToSaveCacheFiltered" | tr '\n' ' ') $FileToInstalledPackagesFile | rg -o '.* ') | rg '^Name |^Version |^Description ' | awk '
+PackagesObsoleteFilter=$(rg -o '.*p":"([^"]*).*,"i":"true"' -r '-ve $1 ' "$FileToSaveCacheFiltered" | tr '\n' ' ')
+
+if [[ -n $PackagesObsoleteFilter ]]; then
+
+    LANG=C pacman -Qi $(rg -N $(rg -o '.*p":"([^"]*).*,"i":"true"' -r '-ve $1 ' "$FileToSaveCacheFiltered" | tr '\n' ' ') $FileToInstalledPackagesFile | rg -o '.* ') | rg '^Name |^Version |^Description ' | awk '
 BEGIN {print "["}
 /Name/ {if (NR!=1) print "},"
         gsub("Name            : ", "");
@@ -149,3 +153,5 @@ BEGIN {print "["}
 /Description/ {gsub("Description     : ", "");
                 printf ", \"d\":\"" $0 "\""}
 END {print "},\n{}]" }' >"$FileToInstalledPackagesObsolete"
+
+fi
