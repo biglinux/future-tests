@@ -69,7 +69,7 @@ do
             ;;
         --flatpak)
             # Verify if Flatpak is installed
-            if [[ -e /usr/bin/snap ]]; then
+            if [[ -e /usr/bin/flatpak ]]; then
                 searchFlatpak=true
             fi
             shift # Remove the --flatpak parameter
