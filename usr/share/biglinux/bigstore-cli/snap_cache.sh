@@ -33,6 +33,11 @@ FileToSaveCacheFiltered="$cacheFolderHome/snap_filtered.json"
 AllSnapCache="$cacheFolderHome/snap_all_pkgs.cache"
 InstalledSnap="$cacheFolderHome/snap_Installed_pkgs.cache"
 
+# If user not root, cache doesn't exist or is older than 24 hours, generate it
+if [ "$UID" -ne 0 ] && { [[ ! -e $AllSnapCache ]] || [[ $(find "$AllSnapCache" -mmin +1440 -print) ]]; }; then
+    snap_download.sh
+fi
+
 # # Installed packages
 LANG=C snap list | awk 'NR>1 { print $1 "\t" $2}' | sort -u >$InstalledSnap &
 
