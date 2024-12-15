@@ -46,8 +46,14 @@ function show_help() {
 
 # Function to reinstall keyring packages
 function reinstall_keys {
-    # List keyring packages and extract package names using awk
-    key_pkgs="$(LANG=C pacman -Sqi biglinux-keyring manjaro-keyring archlinux-keyring 2> /dev/null | awk -F':' '$1 ~ "^Name " {print $2}')"
+    # Filtering installed keyring packages by folders in /var/lib/pacman/local
+    shopt -s extglob # enable extglob
+    cd /var/lib/pacman/local
+    if verify_key_pkgs=(@(archlinux|manjaro|biglinux)-keyring-*); then
+        key_pkgs=${verify_key_pkgs[@]/keyring-*/keyring}
+    fi
+    cd -
+    shopt -u extglob # disable extglob
 
     # Reinitialize and repopulate the keyring
     pacman-key --init
@@ -291,6 +297,6 @@ if [[ "$apply_in_system" == "true" ]] && [[ "$output_type" == "json" ]]; then
 fi
 
 # Verify key error and try reinstalling keys
-if grep -q 'could not be looked up remotely key' /var/log/pacman-log-complete.pactrans; then
+if grep -q -e 'could not be looked up remotely key' -e 'invalid or corrupted package (PGP signature)' /var/log/pacman-log-complete.pactrans; then
     reinstall_keys
 fi
