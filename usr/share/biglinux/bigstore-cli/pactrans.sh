@@ -265,16 +265,16 @@ if [[ "$apply_in_system" == "true" ]] && [[ "$output_type" != "json" ]]; then
          $pacinstall_cmd --yolo --overwrite $use_resolve_replacements --install $sync_first 2>&1 | tee /var/log/pacman-log-complete.pactrans
     fi
 
-    # if [[ -n "$use_resolve_replacements" ]]; then
+    if [[ -n "$use_resolve_replacements" ]]; then
         # Upgrade or installation processes with resolve-replacements=provided
-        # $pacinstall_cmd --yolo --overwrite $use_resolve_replacements $sysupgrade $install_pkgs $remove_pkgs 2>&1 | tee /var/log/pacman-log-complete.pactrans
+        $pacinstall_cmd --yolo --overwrite $use_resolve_replacements $sysupgrade $install_pkgs $remove_pkgs 2>&1 | tee /var/log/pacman-log-complete.pactrans
 
         # Run another time without resolve-replacements=provided
-        # $pacinstall_cmd --yolo --overwrite $sysupgrade $install_pkgs $remove_pkgs 2>&1 | tee /var/log/pacman-log-complete.pactrans
-    # else
+        $pacinstall_cmd --yolo --overwrite $sysupgrade $install_pkgs $remove_pkgs 2>&1 | tee /var/log/pacman-log-complete.pactrans
+    else
         # Run without resolve-replacements=provided
         $pacinstall_cmd --yolo --overwrite $use_resolve_replacements $sysupgrade $install_pkgs $remove_pkgs 2>&1 | tee /var/log/pacman-log-complete.pactrans
-    # fi
+    fi
 fi
 
 # Apply the transaction in the system (JSON output)
