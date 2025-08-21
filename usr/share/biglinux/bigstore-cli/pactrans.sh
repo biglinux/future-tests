@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable extended globbing
+shopt -s extglob
+
 # Initialize variables to store packages to be installed and removed
 pkgs_to_install=""
 pkgs_to_remove=""
@@ -47,13 +50,11 @@ function show_help() {
 # Function to reinstall keyring packages
 function reinstall_keys {
     # Filtering installed keyring packages by folders in /var/lib/pacman/local
-    shopt -s extglob # enable extglob
     cd /var/lib/pacman/local
     if verify_key_pkgs=(@(archlinux|manjaro|biglinux)-keyring-*); then
         key_pkgs=${verify_key_pkgs[@]/keyring-*/keyring}
     fi
     cd -
-    shopt -u extglob # disable extglob
 
     # Reinitialize and repopulate the keyring
     pacman-key --init
